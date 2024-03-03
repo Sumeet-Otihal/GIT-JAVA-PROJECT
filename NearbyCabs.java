@@ -28,3 +28,9 @@ HashMap<>();
  CITY_COORDINATES.put("Bengaluru", new double[]{12.9716, 77.5946});
  CITY_COORDINATES.put("Hyderabad", new double[]{17.385, 78.4867});
  }
+ public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter your location: ");
+            String location = scanner.nextLine();
+            double lat, lon;
