@@ -1,4 +1,5 @@
 package com.mycompany.nearbycabsnogui;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -114,3 +115,12 @@ result.append("No nearby cabs available within 100 km.");
 
 return result.toString();
  }
+ private static double toRadians(double value) {
+        return value * (Math.PI / 180.0);
+    }
+
+    private static double distance(double lat1, double lon1, double lat2, double lon2) {
+        double alpha = Math.acos(Math.sin(lat1) * Math.sin(lat2) + Math.cos(lat1) * Math.cos(lat2) * Math.cos(lon1 - lon2));
+        return alpha * RADIUS_EARTH;
+    }
+}
