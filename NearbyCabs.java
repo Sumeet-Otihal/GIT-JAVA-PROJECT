@@ -63,3 +63,33 @@ e.printStackTrace();
 
 }
  }
+private static double getCityLatitude(String city) {
+
+ return CITY_COORDINATES.get(city)[0];
+
+ }
+
+ private static double getCityLongitude(String city) {
+
+ return CITY_COORDINATES.get(city)[1];
+
+ }
+
+ private static String findNearbyCabs(double lat, double lon) throws IOException {
+
+ StringBuilder result = new StringBuilder();
+  DecimalFormat df = new DecimalFormat("#0.000");
+
+ boolean cabsFound = false;
+
+ try (BufferedReader in = new BufferedReader(new 
+
+FileReader(CAB_DRIVER_FILE))) {
+
+ String line;
+
+ result.append("Nearby cabs around location 
+
+(").append(df.format(lat)).append(", ").append(df.format(lon)).append(")");
+
+ result.append("\n\n");
