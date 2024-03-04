@@ -34,3 +34,32 @@ HashMap<>();
             System.out.print("Enter your location: ");
             String location = scanner.nextLine();
             double lat, lon;
+if (Arrays.asList(MAJOR_CITIES).contains(location)) {
+lat = getCityLatitude (location);
+
+lon = getCityLongitude (location);
+
+} else {
+
+System.out.print("Enter your latitude: ");
+
+lat = Double.parseDouble(scanner.nextLine());
+
+System.out.print("Enter your longitude: ");
+
+lon = Double.parseDouble(scanner.nextLine());
+
+}
+
+String result = findNearbyCabs (lat, lon);
+
+System.out.println(result);
+
+scanner.close();
+
+} catch (Exception e) {
+
+e.printStackTrace();
+
+}
+ }
