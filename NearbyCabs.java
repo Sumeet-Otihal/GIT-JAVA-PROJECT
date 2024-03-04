@@ -1,5 +1,4 @@
 package com.mycompany.nearbycabsnogui;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -93,3 +92,17 @@ FileReader(CAB_DRIVER_FILE))) {
 (").append(df.format(lat)).append(", ").append(df.format(lon)).append(")");
 
  result.append("\n\n");
+ while ((line = in.readLine()) != null) {
+                String[] details = line.split(" ");
+                if (details.length >= 5) { // Check if the line contains all necessary details
+                    double d = distance(toRadians(lat), toRadians(lon), toRadians(Double.parseDouble(details[1])), toRadians(Double.parseDouble(details[2])));
+                    if (d <= 100.0) { // Check if the distance is less than or equal to 100 km
+                        result.append("Name: ").append(details[3]).append("\nDriver ID: ").append(details[0]).append("\nPhone: ").append(details[4]).append("\n");
+                        result.append("Distance: ").append(df.format(d)).append(" km\n\n");
+                        cabsFound = true;
+                    }
+                } else {
+                    System.err.println("Invalid data format in line: " + line);
+                }
+            }
+        }
