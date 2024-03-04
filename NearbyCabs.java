@@ -106,3 +106,11 @@ FileReader(CAB_DRIVER_FILE))) {
                 }
             }
         }
+  if (!cabsFound) {
+
+result.append("No nearby cabs available within 100 km.");
+
+}
+
+return result.toString();
+ }
